@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { Cross as Hamburger } from "hamburger-react";
+import { slide as Menu } from "react-burger-menu";
+import { AiOutlineClose } from "react-icons/ai";
 
 import Container from "../layout/Container";
 import items from "../router";
 
 const HeaderItems = styled.header`
-  position: fixed;
+  position: absolute;
   width: 100%;
   top: 0;
   right: 0;
@@ -46,18 +49,30 @@ const Link = styled.a`
   }
 `;
 
+const Close = styled.button`
+  border: none;
+  background: none;
+  font-size: 24px;
+  color: #fff;
+`;
+
 const Header = () => {
+  const [open, setOpen] = useState(false);
+  const handleClick = () => setOpen((state) => !state);
   return (
     <HeaderItems>
       <HeaderContent>
         <Logo href="#!">Logo</Logo>
-        <List>
+        {/* <List open={open}>
           {items.map(({ name, id }, index) => (
             <li key={index}>
               <Link href={id}>{name}</Link>
             </li>
           ))}
-        </List>
+        </List> */}
+        <Close onClick={handleClick}>
+          <Hamburger />
+        </Close>
       </HeaderContent>
     </HeaderItems>
   );

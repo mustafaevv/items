@@ -11,8 +11,9 @@ const Section = styled.section`
   background: url(${banner}) no-repeat center / cover;
   width: 100%;
   height: 100vh;
-  padding: 25px 0;
-/* 
+  padding-top: 150px;
+  padding-bottom: 20px;
+
   &::after {
     content: "";
     position: absolute;
@@ -23,10 +24,11 @@ const Section = styled.section`
     top: 0;
     z-index: 1;
     left: 0;
-  } */
+  }
 `;
 
 const BannerItem = styled(Container)`
+  position: relative;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
@@ -44,18 +46,19 @@ const Title = styled.h1`
   margin-bottom: 0.5em;
   & span {
     position: relative;
-    /* z-index: 5; */
+    display: inline-block;
+    z-index: 5;
 
     &::before {
       content: "";
-      display: block;
       position: absolute;
       width: 100%;
       height: 8px;
       background: #f1ac02;
       bottom: 20%;
       left: 0;
-      z-index: 3;
+      z-index: -1;
+      display: block;
     }
   }
 `;
@@ -96,6 +99,10 @@ const Icon = styled.a`
   font-size: 22px;
   color: #fff;
   text-decoration: none;
+  transition: 0.5s color;
+  &:hover{
+    color:#f1ac02;
+  }
 `;
 
 const Banner = () => {
