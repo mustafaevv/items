@@ -3,6 +3,7 @@ import Banner from "./components/Banner";
 import About from "./components/About";
 import Catalog from "./components/Catalog";
 import Slider from "./components/Slider";
+import Contact from "./components/Contact";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <About/>
       <Catalog/>
       <Slider/>
+      <Contact/>
     </div>
   );
 }

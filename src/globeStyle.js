@@ -12,6 +12,12 @@ const GlobeStyle = createGlobalStyle`
     background: #FAF5E9;
     font-family: 'Goldman';
   }
+  h6{
+    color: #000;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: .5em;
+  }
 
 `;
 

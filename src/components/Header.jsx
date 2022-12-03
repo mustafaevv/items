@@ -63,13 +63,13 @@ const Header = () => {
     <HeaderItems>
       <HeaderContent>
         <Logo href="#!">Logo</Logo>
-        {/* <List open={open}>
+        <List open={open}>
           {items.map(({ name, id }, index) => (
             <li key={index}>
               <Link href={id}>{name}</Link>
             </li>
           ))}
-        </List> */}
+        </List>
         <Close onClick={handleClick}>
           <Hamburger />
         </Close>
