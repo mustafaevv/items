@@ -13,6 +13,10 @@ const Section = styled.section``;
 
 const SliderContent = styled(Container)`
   & .swiper {
+    padding: 60px 0;
+    --swiper-theme-color: #f1ac02;
+    --swiper-pagination-bullet-inactive-color: #f1ac02;
+    --swiper-pagination-bullet-inactive-opacity: 0.3;
     &-button-prev,
     &-button-next {
       color: #f1ac02;

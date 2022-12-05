@@ -6,6 +6,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 import Container from "../layout/Container";
 import items from "../router";
+import MenuBar from "./MenuBar";
 
 const HeaderItems = styled.header`
   position: absolute;
@@ -34,6 +35,10 @@ const List = styled.ul`
   display: flex;
   align-items: center;
   gap: 3em;
+
+  @media (max-width: 992px) {
+    display: none;
+  }
 `;
 
 const Link = styled.a`
@@ -49,30 +54,38 @@ const Link = styled.a`
   }
 `;
 
-const Close = styled.button`
+const Btn = styled.div`
+  z-index: 8888888;
+  display: none;
   border: none;
   background: none;
   font-size: 24px;
-  color: #fff;
+  color: #f1ac02;
+
+  @media (max-width: 992px) {
+    display: block;
+  }
 `;
 
 const Header = () => {
-  const [open, setOpen] = useState(false);
-  const handleClick = () => setOpen((state) => !state);
+  const [isActive, setIsActive] = useState(false);
+  const handleClickActive = () => setIsActive((state) => !state);
+
   return (
     <HeaderItems>
       <HeaderContent>
         <Logo href="#!">Logo</Logo>
-        <List open={open}>
+        <List>
           {items.map(({ name, id }, index) => (
             <li key={index}>
               <Link href={id}>{name}</Link>
             </li>
           ))}
         </List>
-        <Close onClick={handleClick}>
-          <Hamburger />
-        </Close>
+        <MenuBar isActive={isActive} handleClickActive={handleClickActive} />
+        <Btn>
+          <Hamburger toggled={isActive} toggle={setIsActive} />
+        </Btn>
       </HeaderContent>
     </HeaderItems>
   );
